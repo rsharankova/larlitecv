@@ -7,14 +7,14 @@
 #include <vector>
 
 // larlite
-#include "DataFormat/DataFormatTypes.h"
+#include "larcv/core/DataFormat/DataFormatTypes.h"
 #include "DataFormat/storage_manager.h"
 #include "DataFormat/data_base.h"
 
 // larcv
-#include "DataFormat/EventBase.h"
-#include "DataFormat/IOManager.h"
-#include "Base/PSet.h"
+#include "larcv/core/DataFormat/EventBase.h"
+#include "larcv/core/DataFormat/IOManager.h"
+#include "larcv/core/Base/PSet.h"
 
 
 namespace larlitecv {
@@ -77,11 +77,11 @@ namespace larlitecv {
     larlite::event_base* get_data(const larlite::data::DataType_t type, const std::string& name);
 
     // larcv get data command
-    larcv::EventBase* get_data(const larcv::ProductType_t type, const std::string& producer);
+    larcv::EventBase* get_data(const std::string type, const std::string& producer);
     
     // wrapped commands because python can't resolve function
     larlite::event_base* get_larlite_data( const larlite::data::DataType_t type, const std::string& name) { return get_data( type, name); };
-    larcv::EventBase*    get_larcv_data( const larcv::ProductType_t type, const std::string& producer ) { return get_data( type, producer ); };
+    larcv::EventBase*    get_larcv_data( const std::string type, const std::string& producer ) { return get_data( type, producer ); };
   
   protected:
     
